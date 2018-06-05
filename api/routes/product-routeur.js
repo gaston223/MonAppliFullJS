@@ -1,22 +1,17 @@
 // les imports
 const express =require('express');
 const router =express.Router();
-const ProductFile=require(__basedir +'/model/product.js');
-const Product = ProductFile.Product;
+const productController=require(__basedir + '/controllers/product-controller');
+
+
 
 /**
  * Route : liste des produits
  */
-
-router.get('/',(req, res, next)=>{
-    //Récupération des produits
-    Product.find(
-        (err, products)=>{
-            if(err){next(err);}
-            else{
-                res.json(products);
-            }
-        }
-    )
-})
+router.route('/')
+//liste de produits
+.get(productController.list)
+//Ajout d'un produit
+.post(productController.add)
+;
 module.exports =router;
