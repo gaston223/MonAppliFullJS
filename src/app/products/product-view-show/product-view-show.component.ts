@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../../model/product';
 
 @Component({
@@ -10,14 +10,24 @@ import { Product } from '../../model/product';
 })
 export class ProductViewShowComponent implements OnInit {
 
+
   public product: Product;
-  constructor(private productService: ProductService, private route: ActivatedRoute) { }
+  constructor(private productService: ProductService,
+  private route: ActivatedRoute,
+  private router: Router) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     // Utilisation du service pour récuperer le produit de l'API et l'attribuer à notre produit de component
     this.productService.showProduct(id).subscribe(
-      (productAPI) => this.product = productAPI
+      (productAPI) => {
+        if (productAPI) {
+        this.product = productAPI;
+      } else {
+        // Redirection vers la page 404
+        this.router.navigate(['/error-404']);
+            }
+        }
     );
   }
 

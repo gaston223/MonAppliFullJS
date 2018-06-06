@@ -1,5 +1,6 @@
 const ProductFile=require(__basedir +'/model/product.js');
 const Product = ProductFile.Product;
+const mongoose = require('mongoose');
 /**
  * Récupere la liste des produits
  */
@@ -43,7 +44,7 @@ Récupération d'un produit par rapport à son id
 module.exports.show = (req, res, next) => {
     //Récupération de l'id
     const id =req.params.id;
-
+    if(mongoose.Types.ObjectId.isValid(id)){
     //Récupération du produit
     Product.findOne(
         {'_id' : id},
@@ -53,6 +54,8 @@ module.exports.show = (req, res, next) => {
                 res.json(product);
             }
         }
-    )    
-
+      
+    );    
+    }
+    else{res.json(null);}
 }
