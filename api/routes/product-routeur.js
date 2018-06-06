@@ -15,4 +15,6 @@ router.route('/')
 .post(productController.add)
 ;
 
+//Détail d'un produit
+router.get('/:id', productController.show)
 module.exports =router;

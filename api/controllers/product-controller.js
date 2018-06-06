@@ -34,5 +34,25 @@ module.exports.add= (req, res, next)=>{
         }
     );
 
-
 };
+
+/*
+Récupération d'un produit par rapport à son id
+*/
+
+module.exports.show = (req, res, next) => {
+    //Récupération de l'id
+    const id =req.params.id;
+
+    //Récupération du produit
+    Product.findOne(
+        {'_id' : id},
+        (err, product)=>{
+            if(err){next(err);}
+            else{
+                res.json(product);
+            }
+        }
+    )    
+
+}

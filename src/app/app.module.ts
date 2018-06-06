@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ProductAddComponent } from './products/product-add/product-add.component';
+import { ProductViewShowComponent } from './products/product-view-show/product-view-show.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    ProductViewShowComponent
   ],
   imports: [
     BrowserModule,
