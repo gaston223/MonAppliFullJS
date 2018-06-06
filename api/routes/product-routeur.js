@@ -14,4 +14,5 @@ router.route('/')
 //Ajout d'un produit
 .post(productController.add)
 ;
+
 module.exports =router;

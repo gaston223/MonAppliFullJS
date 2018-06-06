@@ -1,4 +1,5 @@
-const Product=require(__basedir +'/model/product.js').Product;
+const ProductFile=require(__basedir +'/model/product.js');
+const Product = ProductFile.Product;
 /**
  * Récupere la liste des produits
  */
@@ -20,15 +21,11 @@ module.exports.list= (req, res, next)=>{
  * Ajout d'un produit dans la bdd
  */
 module.exports.add= (req, res, next)=>{
+    const productReceived = req.body;
+    
     //Ajout d'un produit dans la bdd
     Product.create(
-        {
-            name : 'Broly',
-            introduction:'Le mechant le plus redoutable de tous les temps',
-            price: 999.99,
-            createdAt: new Date(),
-            publicateur:'Gaston'
-        },
+        productReceived,
         (err, product)=>{
             if(err){next(err);}
             else{

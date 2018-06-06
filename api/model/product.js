@@ -9,7 +9,7 @@ const productSchema = new Schema ({
         required:'Le nom du produit doit etre renseigné',
         unique : true
     },
-    introduction: {
+    description: {
         type :String,
         required:'Introduction obligatoire'
 

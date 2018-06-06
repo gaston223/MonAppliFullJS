@@ -9,6 +9,7 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let mongoose =require('mongoose');
+let cors = require('cors');
 
 //Imports des routeurs
 const productRouter = require('./routes/product-routeur');
@@ -16,6 +17,13 @@ const productRouter = require('./routes/product-routeur');
 
 //Création de l'application
 let app = express();
+
+//Parametrer les connexions entrantes
+const corsOptions={
+  origin: 'http://localhost:4200'
+};
+
+app.use(cors(corsOptions));
 
 // Middleware de base
 app.use(logger('dev'));
@@ -50,5 +58,6 @@ app.use(function(err, req, res, next) {
   console.log(err);
   res.json(err);
 });
+
 
 module.exports = app;

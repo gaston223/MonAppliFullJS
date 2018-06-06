@@ -4,12 +4,14 @@ import { RouterModule, Routes} from '@angular/router';
 
 // component perso
 import { ProductListComponent } from './products/product-list/product-list.component';
+import { ProductAddComponent } from './products/product-add/product-add.component';
 
 
 
 // on definit les routes
 const routes: Routes = [
-  {path: 'produits', component: ProductListComponent}
+  {path: 'produits', component: ProductListComponent},
+  {path: 'produits/ajout', component: ProductAddComponent}
  ];
 
 
