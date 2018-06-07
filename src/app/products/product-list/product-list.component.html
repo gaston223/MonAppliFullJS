@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
+
+  <br>
   <main class="container">
     <h1>Liste des produits</h1>
+    <br>
     <ul class="list-group">
-      <li *ngFor="let product of products" class="list-group-item list-group-item-secondary">
-          {{ product.name }} 
-          
+      <li *ngFor="let productLoop of products" class="list-group-item list-group-item-action"   (click)="productSelected=productLoop;">
+         {{ productLoop.name }}
       </li>
     </ul>
+    <br><br>
+    <!--On imbrique le component ProductShow (detail du produit)-->
+    <app-product-show [product]="productSelected" ></app-product-show>
   </main>
-</body>
-</html>
+
+
 

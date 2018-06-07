@@ -14,6 +14,8 @@ router.route('/')
 //Ajout d'un produit
 .post(productController.add)
 ;
+//Modification d'un produit
+.put()
 
 //Détail d'un produit
 router.get('/:id', productController.show)

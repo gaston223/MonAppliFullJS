@@ -10,6 +10,7 @@ import { ProductAddComponent } from './products/product-add/product-add.componen
 import { ProductViewShowComponent } from './products/product-view-show/product-view-show.component';
 import { Error404Component } from './errors/error404/error404.component';
 import { HomeComponent } from './home/home/home.component';
+import { ProductShowComponent } from './products/product-show/product-show.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home/home.component';
     ProductAddComponent,
     ProductViewShowComponent,
     Error404Component,
-    HomeComponent
+    HomeComponent,
+    ProductShowComponent
   ],
   imports: [
     BrowserModule,
