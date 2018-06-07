@@ -11,6 +11,7 @@ import { ProductViewShowComponent } from './products/product-view-show/product-v
 import { Error404Component } from './errors/error404/error404.component';
 import { HomeComponent } from './home/home/home.component';
 import { ProductShowComponent } from './products/product-show/product-show.component';
+import { ProductUpdateComponent } from './products/product-update/product-update.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProductShowComponent } from './products/product-show/product-show.compo
     ProductViewShowComponent,
     Error404Component,
     HomeComponent,
-    ProductShowComponent
+    ProductShowComponent,
+    ProductUpdateComponent
   ],
   imports: [
     BrowserModule,

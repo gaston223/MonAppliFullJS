@@ -1,6 +1,7 @@
 const ProductFile=require(__basedir +'/model/product.js');
 const Product = ProductFile.Product;
 const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 /**
  * Récupere la liste des produits
  */
@@ -44,7 +45,7 @@ Récupération d'un produit par rapport à son id
 module.exports.show = (req, res, next) => {
     //Récupération de l'id
     const id =req.params.id;
-    if(mongoose.Types.ObjectId.isValid(id)){
+    if(ObjectId.isValid(id)){
     //Récupération du produit
     Product.findOne(
         {'_id' : id},
@@ -58,4 +59,34 @@ module.exports.show = (req, res, next) => {
     );    
     }
     else{res.json(null);}
+}
+
+module.exports.update= (req, res, next)=>{
+    //Recuperation du produit
+    const productToUpdate = req.body;
+
+    //Si l'id du produit envoyé est valide : on modifie
+    if(productToUpdate._id && ObjectId.isValid(productToUpdate._id) ){
+
+    //Modification du produit
+    Product.update(
+        //Les conditions que doivent les enregistrements pour etre modifiés
+        {
+            '_id' : productToUpdate._id
+        },
+        //les modifications a effectuer
+        productToUpdate,
+
+
+        //Fonction de Rappel (callback= à executer lorsque les modifications ont été faites)
+        (err, nbLines)=>{
+            if(err){ next(err);}
+            else{
+                res.json({ result:true});
+            }
+        }
+        );
+        }else{
+        res.json({ result:false});
+    }
 }

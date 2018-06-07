@@ -12,8 +12,8 @@
 
 -->
 
-<main class="container">
-  <h1>Ajout d'un Produit</h1>
+<main class="container" *ngIf="product">
+  <h1>{{ title }}</h1>
     <form #productForm="ngForm" (ngSubmit)="saveProduct()">
       <div class="form-group">
         <label for="name">Nom du produit</label>
@@ -43,7 +43,7 @@
       </div>
     
     
-      <input [disabled]="!productForm.form.valid" type="submit" class="btn btn-primary" value="Créer">
+      <input [disabled]="!productForm.form.valid" type="submit" class="btn btn-primary" [value]="submitValue">
     </form>
 
   <pre>{{ product | json }}</pre>
