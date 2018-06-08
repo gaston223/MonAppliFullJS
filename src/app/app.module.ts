@@ -4,31 +4,24 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './products/product-list/product-list.component';
+
 import { AppRoutingModule } from './/app-routing.module';
-import { ProductAddComponent } from './products/product-add/product-add.component';
-import { ProductViewShowComponent } from './products/product-view-show/product-view-show.component';
+
 import { Error404Component } from './errors/error404/error404.component';
 import { HomeComponent } from './home/home/home.component';
-import { ProductShowComponent } from './products/product-show/product-show.component';
-import { ProductUpdateComponent } from './products/product-update/product-update.component';
+import { ProductModule } from './products/product.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
-    ProductAddComponent,
-    ProductViewShowComponent,
     Error404Component,
     HomeComponent,
-    ProductShowComponent,
-    ProductUpdateComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule
+    ProductModule,
+    AppRoutingModule, // Ce module doit etre chargé après les autres modules de routage
   ],
   providers: [],
   bootstrap: [AppComponent]

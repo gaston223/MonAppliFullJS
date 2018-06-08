@@ -12,7 +12,7 @@ module.exports.register=(req, res, next)=>{
 
     // Hasher le mot de passe
     if(userReceived.plainPassword){
-    bcrypt.hash(userReceived.plainPassword, 16, (err, hash) => {
+    bcrypt.hash(userReceived.plainPassword, 10, (err, hash) => {
         if(err) { next(err);}
         else {
         userReceived.password = hash;
