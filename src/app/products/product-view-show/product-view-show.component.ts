@@ -42,4 +42,16 @@ export class ProductViewShowComponent implements OnInit, DoCheck {
         }
     );
   }
+private remove(): void {
+  this.productService.delete(this.product._id).subscribe(
+    (data) => {
+      if (data.result) {
+        this.router.navigate(['/produits']);
+      } else {
+        console.log(`L'id envoyé est incorrecte`);
+      }
+    }
+  );
+}
+
 }
