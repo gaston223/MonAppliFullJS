@@ -42,6 +42,8 @@ export class ProductViewShowComponent implements OnInit, DoCheck {
         }
     );
   }
+
+  // Suppression d'un produit via L'API avec son URL
 private remove(): void {
   this.productService.delete(this.product._id).subscribe(
     (data) => {

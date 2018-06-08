@@ -10,6 +10,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { Error404Component } from './errors/error404/error404.component';
 import { HomeComponent } from './home/home/home.component';
 import { ProductModule } from './products/product.module';
+import { UserModule } from './users/user.module';
 
 
 @NgModule({
@@ -21,7 +22,9 @@ import { ProductModule } from './products/product.module';
   imports: [
     BrowserModule,
     ProductModule,
-    AppRoutingModule, // Ce module doit etre chargé après les autres modules de routage
+    UserModule,
+    AppRoutingModule,
+    // Ce module doit etre chargé après les autres modules de routage
   ],
   providers: [],
   bootstrap: [AppComponent]
