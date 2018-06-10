@@ -49,4 +49,18 @@ export class ProductService {
     );
   }
 
+
+  public update(product: Product): Observable<{result: Boolean}> {
+    return this.http.put<{result: Boolean}> (this.apiURL, product, this.httpOptions).pipe(
+      tap((data) => console.log('Retour de modification ' + data.result))
+    );
+  }
+
+  public delete(id: String): Observable<{result: Boolean}> {
+    return this.http.delete<{result: Boolean}>(this.apiURL + '/' + id).pipe(
+      tap((data) => { console.log(`Retour de suppression :` + data.result);
+    }
+    )
+    );
+  }
 }

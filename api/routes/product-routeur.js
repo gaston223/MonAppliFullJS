@@ -13,8 +13,13 @@ router.route('/')
 .get(productController.list)
 //Ajout d'un produit
 .post(productController.add)
-;
+// Modification d'un produit
+.put(productController.update)
+
 
 //Détail d'un produit
-router.get('/:id', productController.show)
+router.route('/:id')
+.get(productController.show)
+// Suppression d'un produit
+.delete(productController.delete)
 module.exports =router;
