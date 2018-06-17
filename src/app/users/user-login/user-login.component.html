@@ -1,0 +1,15 @@
+<main class="container">
+  <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
+  <form class="form-signin" (ngSubmit)="login()">
+    <label for="username" class="sr-only">Nom d'utilisateur</label>
+    <input [(ngModel)]="user.username" id="username" name="username" class="form-control" placeholder="Nom d'utilisateur" required="" autofocus="" type="text">
+    
+    <label for="inputPassword" class="sr-only">Mot de passe</label>
+    <input [(ngModel)]="user.plainPassword" name="plainPassword"  id="inputPassword" class="form-control" placeholder="Mot de passe" required="" type="password">
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+  </form>
+</main>
+
+<pre>{{ user | json }}</pre>
+

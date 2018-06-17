@@ -4,6 +4,8 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserRoutingModule } from './user-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UserLoginComponent } from './user-login/user-login.component';
+
 
 @NgModule({
   imports: [
@@ -12,6 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     UserRoutingModule
   ],
-  declarations: [UserRegisterComponent]
+  declarations: [UserRegisterComponent, UserLoginComponent]
 })
 export class UserModule { }

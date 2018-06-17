@@ -33,28 +33,47 @@ module.exports.register=(req, res, next)=>{
     }
     //Ajout de l'utilisateur
 }
+/**
+ * Vérification du nom d'utilisateur et du mot de passe
+ * @param  req 
+ * @param  res 
+ * @param  nest 
+ */
+module.exports.login = (req, res, next) => {
 
-module.exports.login=(req, res, next)=>{
-    //Verif du nom d'utilisateur et du mot de passe
+    // Récupération des données envoyées
     const datas = req.body;
-    if (datas.username){
-        User.find(
+
+    if(datas.username && datas.plainPassword) {
+        // Recherche de l'utilisateur
+        User.findOne(
             {
                 'username': datas.username
-            },
-            (err, user)=>{
-                if(err){next(err);}
+            }, 
+            (err, user) => {
+                if(err) { next(err); }
                 else{
-                    //Verification du mot de passe
-                    bcrypt.compare(datas.plainPassword, userpassword,(err,res)=>{
-                        if(err) {res.json({result: false});}
-                        else{
-                        if (res){{res.json({result:false});}}
-                        }
-                    })
+
+                    if(user) {
+                        // Vérification du mot de passe
+
+                        console.log(datas.plainPassword),
+                        console.log(user.password);
+                        bcrypt.compare(datas.plainPassword, user.password, (err, resultat) => {
+                            if(err) { next(err); }
+                            else {
+                                if(resultat) { 
+                                    // connexion ok 
+                                    res.json({result: true}); }
+                                else { res.json({result: false}); }
+                            }
+                        })
+                    } else { res.json({result: false}); }
+                   
                 }
             }
         )
+    } else {
+        res.json({result: false});
     }
-   
-}
+};

@@ -1,27 +1,26 @@
 # Fulljs
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
+Projet visant à créer une application utilisant :
+<ul>
+    <li>Angular6</li>
+    <li>Node.JS</li>
+    <li>MongoDB</li>
+</ul>
 
-## Development server
+## Génération
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+La base du projet Angular a été généré avec : <br/>
+Angular CLI version 6.0.7 (https://github.com/angular/angular-cli)
 
-## Code scaffolding
+La base de l'API REST a été générée avec :
+Express-generator version 4.16.0 (https://github.com/expressjs/generator)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Serveur de développement
 
-## Build
+Pour lancer le serveur de développement d'angular (racine du projet) : <br/>
+ng serve
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Pour lancer la partie Node en watch (dossier "api") : <br/>
+npm run-script watch
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Remarque : s'assurer que les bases de données soit disponibles (service Windows, Atlas, ...)

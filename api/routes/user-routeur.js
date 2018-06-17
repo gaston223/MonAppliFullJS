@@ -5,8 +5,7 @@ const userController = require(__basedir +'/controllers/user-controller');
 
 //Ajout d'un utilisateur
 router.post('/', userController.register);
-router.get('/',);
-router.post('/',)
+router.post('/login', userController.login);
 
 //On export le routeur pour pouvoir l'utiliser dans l'application
 module.exports = router;

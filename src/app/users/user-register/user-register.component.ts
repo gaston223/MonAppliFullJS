@@ -21,7 +21,7 @@ export class UserRegisterComponent implements OnInit {
   private register(): void {
     this.userService.userRegister(this.user).subscribe(
       (user) => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/produits']);
       }
     );
   }
